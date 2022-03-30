@@ -53,6 +53,55 @@ code {
 a {
     text-decoration: none;
 }
+.comment {
+    margin: 10px 0;
+    border: solid 2px white;
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0);
+    padding: 0 30px 10px;
+}
+.comment h1 {
+    border-bottom: 2px solid;
+    border-color: rgb(160, 155, 155);
+    font-size: x-large;
+}
+.commentForm {
+    font-size: 22px;
+    background-color: rgb(209, 209, 209);
+    margin: 0 auto;
+}
+.commentForm label {
+    display: inline-block;
+    width: 100%;
+    background-color: black;
+    text-transform: uppercase;
+}
+.commentForm input {
+    height: 20px;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    font-size: 30px;
+}
+.commentForm textarea {
+    width: 99.6%;
+    height: 200px;
+    resize: none;
+    font-size: 30px;
+    background-color: rgb(51, 51, 51);
+    color: white;
+}
+.commentForm button {
+    background-color: #111111;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
 @media screen and (max-width: 1120px) {
     .Home {
