@@ -8,15 +8,15 @@ function App() {
     return (
         <Router>
             <div className="root">
-                <Link to="/">
+                <Link to="/Blog/">
                     <header>./blog</header>
                 </Link>
                 {/* <Nav /> */}
 
                 <div className="main-container">
                     <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/post/:id" element={<Post />} />
+                        <Route path="/Blog/" element={<Home />} />
+                        <Route path="/Blog/post/:id" element={<Post />} />
                     </Routes>
                 </div>
             </div>
