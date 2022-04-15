@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import React, { useState } from 'react'
 import Comment from './Comment'
+import { domain } from '../constants'
 export default function Post(props) {
     let params = useParams()
     const [post, setPost] = useState()
@@ -10,7 +11,7 @@ export default function Post(props) {
     const [content, setContent] = useState('')
     const [error, setError] = useState('')
     useEffect(() => {
-        fetch(`http://localhost:3000/api/post/${params.id}`)
+        fetch(`${domain}api/post/${params.id}`)
             .then((response) => response.json())
             .then((data) => {
                 setPost(data)
@@ -22,7 +23,7 @@ export default function Post(props) {
                 if (data[0].comments[0]) {
                     Promise.all(
                         data[0].comments.map((u) =>
-                            fetch(`http://localhost:3000/api/comment/${u}`)
+                            fetch(`${domain}api/comment/${u}`)
                         )
                     )
                         .then((response) => response.map((e) => e.json()))
@@ -47,7 +48,7 @@ export default function Post(props) {
         } else {
             setError('')
         }
-        fetch('http://localhost:3000/api/comment/create', {
+        fetch(`${domain}api/comment/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

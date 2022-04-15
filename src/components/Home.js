@@ -5,11 +5,11 @@ import Blog from './Blog.js'
 import BlogCard from './BlogCard.js'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
-
+import { domain } from '../constants'
 export default function Home() {
     const [posts, setPosts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:3000/api/posts')
+        fetch(`${domain}api/posts`)
             .then((response) => response.json())
             .then((data) => {
                 setPosts(data)
