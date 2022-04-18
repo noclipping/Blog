@@ -61,7 +61,14 @@ export default function Post(props) {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
+                console.log(data.comments[0])
+                setComments((oldComments) => [
+                    ...oldComments,
+                    { author: name, content, post: params.id },
+                ])
+
+                setName('')
+                setContent('')
             })
 
         e.preventDefault()
