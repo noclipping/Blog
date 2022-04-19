@@ -15,8 +15,7 @@ export default function Post(props) {
             .then((response) => response.json())
             .then((data) => {
                 setPost(data)
-                console.log(data)
-                console.log(post, 'post')
+                console.log(data, 'post')
                 return data
             })
             .then((data) => {
@@ -69,6 +68,12 @@ export default function Post(props) {
 
                 setName('')
                 setContent('')
+                let comment_inputs =
+                    document.getElementsByClassName('comment-input')
+                console.log(comment_inputs)
+                for (const field of comment_inputs) {
+                    field.value = ''
+                }
             })
 
         e.preventDefault()
@@ -91,11 +96,17 @@ export default function Post(props) {
                 </label>
                 <label>name</label>
                 <br />
-                <input onChange={(e) => setName(e.target.value)} />
+                <input
+                    className="comment-input"
+                    onChange={(e) => setName(e.target.value)}
+                />
                 <br />
                 <label>content</label>
                 <br />
-                <textarea onChange={(e) => setContent(e.target.value)} />
+                <textarea
+                    className="comment-input"
+                    onChange={(e) => setContent(e.target.value)}
+                />
                 <br />
                 {error ? (
                     <p style={{ color: 'red', fontSize: '20px' }}>{error}</p>
