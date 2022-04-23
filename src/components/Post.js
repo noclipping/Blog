@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import React, { useState } from 'react'
 import Comment from './Comment'
 import { domain } from '../constants'
-export default function Post(props) {
+export default function Post() {
     let params = useParams()
     const [post, setPost] = useState()
     const [comments, setComments] = useState([])
@@ -70,7 +70,6 @@ export default function Post(props) {
                 setContent('')
                 let comment_inputs =
                     document.getElementsByClassName('comment-input')
-                console.log(comment_inputs)
                 for (const field of comment_inputs) {
                     field.value = ''
                 }
@@ -80,11 +79,28 @@ export default function Post(props) {
     }
     return (
         <div>
-            <header>{post ? post[0].title : ''}</header>
-
-            <p style={{ marginBottom: '300px' }}>
-                {post ? post[0].content : ''}
-            </p>
+            <div className="post-header">
+                {post ? (
+                    <img
+                        src={post[0].imgURL}
+                        alt="header image"
+                        style={{ width: '100%', height: '30vh' }}
+                    />
+                ) : (
+                    ''
+                )}
+                <div className="post-header-center">
+                    {post ? post[0].title : ''}
+                </div>
+            </div>
+            <div
+                style={{ marginBottom: '300px' }}
+                dangerouslySetInnerHTML={
+                    post ? { __html: post[0].content } : { __html: '' }
+                }
+            >
+                {/* {post ? post[0].content : ''} */}
+            </div>
             <form className="commentForm" onSubmit={handleSubmit}>
                 <label
                     style={{
@@ -115,7 +131,6 @@ export default function Post(props) {
                 )}
                 <button>Submit</button>
             </form>
-
             {comments.length > 0
                 ? comments.map((e) => (
                       <Comment

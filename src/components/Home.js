@@ -26,6 +26,7 @@ export default function Home() {
                 title={post.title}
                 content={post.content}
                 date={post.date}
+                imgURL={post.imgURL}
             />
         )
     }
