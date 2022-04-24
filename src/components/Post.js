@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import React, { useState } from 'react'
 import Comment from './Comment'
 import { domain } from '../constants'
+import { decode } from 'html-entities'
 export default function Post() {
     let params = useParams()
     const [post, setPost] = useState()
@@ -96,7 +97,7 @@ export default function Post() {
             <div
                 style={{ marginBottom: '300px' }}
                 dangerouslySetInnerHTML={
-                    post ? { __html: post[0].content } : { __html: '' }
+                    post ? { __html: decode(post[0].content) } : { __html: '' }
                 }
             >
                 {/* {post ? post[0].content : ''} */}
