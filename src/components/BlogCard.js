@@ -6,8 +6,11 @@ export default function BlogCard(props) {
         <Link to={`/post/${props.number}`}>
             <div className="BlogCard">
                 <h2>{props.title}</h2>
-                <img className="card-image" src={props.imgURL} />
-                <p className="description">{props.content}</p>
+                <img
+                    className="card-image"
+                    src={props.imgURL.length > 4 ? props.imgURL : ''}
+                />
+                <p className="description">{props.description}</p>
             </div>
         </Link>
     )
