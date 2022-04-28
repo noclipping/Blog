@@ -31,5 +31,9 @@ export default function Home() {
             />
         )
     }
-    return <div className="Home">{cards}</div>
+    return (
+        <div>
+            <div className="Home">{cards}</div>
+        </div>
+    )
 }
