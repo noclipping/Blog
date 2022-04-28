@@ -13,12 +13,24 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+#fixed-text {
+    position: absolute;
+}
 .root header {
+    display: inline-block;
     text-align: center;
     font-size: 100px;
     margin: 20px 0 100px;
     text-decoration: none;
     color: white;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-right: solid 2px rgba(0, 0, 0, 0);
+    padding-right: 5px;
+}
+
+.root header:hover {
+    color: rgb(55, 226, 33);
 }
 
 .post-header {
@@ -32,6 +44,8 @@ code {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: black;
+    padding: 10px;
 }
 
 .BlogCard {
@@ -40,6 +54,11 @@ code {
     background-color: rgb(15, 15, 15);
     padding: 10px;
     text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+.BlogCard:hover {
+    border: solid 2px rgb(55, 226, 33);
+    transform: scale(1.1);
 }
 .BlogCard h2 {
     color: white;
@@ -51,6 +70,7 @@ code {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px 5%;
+    margin-bottom: 100px;
 }
 .main-container {
     width: 80%;
