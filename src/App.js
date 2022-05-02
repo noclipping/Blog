@@ -6,13 +6,20 @@ import Post from './components/Post'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 let intervId
 let cursorOn = true
+let cursorStart = true
 function App() {
     return (
         <Router>
             <div className="root">
                 <Link to="/">
                     <header
+                        className=""
                         onMouseEnter={() => {
+                            if (cursorStart) {
+                                let header = document.querySelector('header')
+                                header.style.borderRight = 'solid 2px white'
+                                cursorOn = false
+                            }
                             if (!intervId) {
                                 intervId = setInterval(() => {
                                     let header =

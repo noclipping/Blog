@@ -80,7 +80,7 @@ export default function Post() {
     }
     return (
         <div>
-            <div className="post-header">
+            <div className="post-header" style={{ animation: 'fadeIn 0.5s' }}>
                 {post ? (
                     <img
                         src={post[0].imgURL}

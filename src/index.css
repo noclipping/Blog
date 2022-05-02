@@ -55,6 +55,17 @@ code {
     padding: 10px;
     text-align: center;
     transition: all 0.2s ease-in-out;
+    animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 100%;
+        transform: translateY(0);
+    }
 }
 .BlogCard:hover {
     border: solid 2px rgb(55, 226, 33);
